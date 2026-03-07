@@ -1,6 +1,5 @@
 pipeline {
     agent any
-
     stages {
 
         stage('Install Dependencies') {
@@ -9,11 +8,12 @@ pipeline {
             }
         }
 
-        stage('Run Cypress Tests') {
+        stage('Run Tests') {
             steps {
-                sh 'npx cypress run'
+                ansiColor('xterm') {
+                    sh 'npx cypress run'
+                }
             }
         }
-
     }
 }
